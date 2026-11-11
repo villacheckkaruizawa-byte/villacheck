@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Villa Check 軽井沢・御代田｜別荘・セカンドハウス点検・管理サービス</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      line-height: 1.7;
+      color: #333;
+      background: #f8f9fa;
+    }
+    header {
+      background: #1a3c34;
+      color: white;
+      padding: 1.2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-size: 0.95rem;
+    }
+    nav a:hover {
+      opacity: 0.8;
+    }
+    .hero {
+      background: linear-gradient(rgba(26, 60, 52, 0.75), rgba(26, 60, 52, 0.75)), 
+                  url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600') center/cover;
+      color: white;
+      text-align: center;
+      padding: 6rem 5%;
+    }
+    .hero h1 {
+      font-size: 2.1rem;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+    .btn {
+      display: inline-block;
+      background: #e8b86d;
+      color: #1a3c34;
+      padding: 0.9rem 2.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn:hover {
+      background: #f0c97a;
+      transform: translateY(-2px);
+    }
+    section {
+      padding: 4rem 5%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 2.5rem;
+      color: #1a3c34;
+      position: relative;
+    }
+    h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #e8b86d;
+      margin: 0.8rem auto 0;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      transition: 0.3s;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    .service-card h3 {
+      color: #1a3c34;
+      margin-bottom: 0.8rem;
+      font-size: 1.25rem;
+    }
+    .about {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .about p {
+      margin-bottom: 1.2rem;
+    }
+    .about p:last-child {
+      margin-bottom: 0;
+    }
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+    .price-table th, .price-table td {
+      padding: 1.1rem 1.5rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    .price-table th {
+      background: #1a3c34;
+      color: white;
+    }
+    .price-table tr:last-child td {
+      border-bottom: none;
+    }
+    .contact-form {
+      background: white;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .form-group {
+      margin-bottom: 1.4rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: bold;
+      color: #1a3c34;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .checkbox-item input {
+      width: 18px;
+      height: 18px;
+    }
+    .form-note {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 1rem;
+      text-align: center;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.55rem;
+      }
+      nav {
+        display: none;
+      }
+      header {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Villa Check 軽井沢・御代田</div>
+    <nav>
+      <a href="#services">サービス</a>
+      <a href="#about">特徴</a>
+      <a href="#price">料金</a>
+      <a href="#contact">お問い合わせ</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>軽井沢・御代田エリアの<br>別荘・セカンドハウス点検・管理</h1>
+    <p>不動産・建築・別荘管理の経験を活かした<br>実践的なサポートをお届けします</p>
+    <a href="#contact" class="btn">まずは無料相談する</a>
+  </section>
+
+  <section id="services">
+    <h2>サービス内容</h2>
+    <div class="services">
+      <div class="service-card">
+        <h3>定期点検・状態確認</h3>
+        <p>屋根・外壁・設備・水回りなどを目視と写真撮影で確認。写真付き報告書をお渡しします。</p>
+      </div>
+      <div class="service-card">
+        <h3>水抜き・水出し対応</h3>
+        <p>冬季の水抜きや、シーズン前の水出し作業に対応。凍結によるトラブルを未然に防ぎます。</p>
+      </div>
+      <div class="service-card">
+        <h3>清掃業者の手配</h3>
+        <p>必要に応じて信頼できる清掃業者を手配。シーズン前の清掃などもスムーズに進められます。</p>
+      </div>
+      <div class="service-card">
+        <h3>簡単なリフォーム見積り</h3>
+        <p>点検結果やご要望に応じて、簡単なリフォーム・修繕の見積りを作成・ご提示します。</p>
+      </div>
+      <div class="service-card">
+        <h3>庭の草刈り・剪定</h3>
+        <p>別荘の庭や敷地の草刈り・枝の剪定に対応。シーズン前の手入れもお任せください。</p>
+      </div>
+      <div class="service-card">
+        <h3>放置別荘の確認</h3>
+        <p>長期間人が入っていない別荘の状態確認に対応。雨漏りや劣化の早期発見につなげます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>選ばれる理由</h2>
+    <div class="about">
+      <p>不動産、建築、および別荘管理における豊富な現場経験を活かし、単なる外観の確認に留まらない、実践的な点検・サポートをご提供いたします。</p>
+      <p>軽井沢エリアは、夏季の人口増加や冬季の厳寒期といった特有の気候風土を持つため、季節に応じた適切な対策が不可欠です。冬季の水抜き・水出し作業といった実務的な対応も承っております。</p>
+      <p>さらに、清掃業者の手配、小規模なリフォームのお見積もり、お庭の草刈り・剪定に至るまで総合的に対応可能なため、定期点検からそれに伴う修繕や管理まで一貫してサポートいたします。御代田町を拠点としているため、軽井沢・御代田エリアへ迅速かつ円滑にお伺いいたします。</p>
+    </div>
+  </section>
+
+  <section id="price">
+    <h2>料金の目安</h2>
+    <table class="price-table">
+      <tr>
+        <th>サービス</th>
+        <th>内容</th>
+        <th>料金目安</th>
+      </tr>
+      <tr>
+        <td>基本点検</td>
+        <td>外観・設備の目視点検＋写真報告書</td>
+        <td>15,000円〜</td>
+      </tr>
+      <tr>
+        <td>季節前点検</td>
+        <td>冬前・シーズン前の重点チェック</td>
+        <td>18,000円〜</td>
+      </tr>
+      <tr>
+        <td>水抜き・水出し</td>
+        <td>冬季対応・シーズン前の水回り作業</td>
+        <td>20,000円〜</td>
+      </tr>
+      <tr>
+        <td>庭の草刈り・剪定</td>
+        <td>敷地内の草刈り・枝の剪定</td>
+        <td>20,000円〜</td>
+      </tr>
+      <tr>
+        <td>放置別荘の確認</td>
+        <td>長期間不在別荘の状態チェック</td>
+        <td>10,000円</td>
+      </tr>
+      <tr>
+        <td>定期管理</td>
+        <td>月1回の見回り＋簡単な報告</td>
+        <td>応相談</td>
+      </tr>
+    </table>
+    <p style="text-align:center; margin-top:1.2rem; color:#666; font-size:0.95rem;">
+      ※物件の規模や内容により変動します。清掃業者手配・簡単なリフォーム見積りは別途ご相談ください。
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>お問い合わせ</h2>
+    <div class="contact-form">
+      <form action="#" method="post" onsubmit="event.preventDefault(); alert('送信内容を確認しました。実際の送信機能はサーバー側の設定が必要です。');">
+        
+        <div class="form-group">
+          <label>お名前 <span style="color:#c00;">*</span></label>
+          <input type="text" name="name" required placeholder="例：山田 太郎">
+        </div>
+
+        <div class="form-group">
+          <label>メールアドレス <span style="color:#c00;">*</span></label>
+          <input type="email" name="email" required placeholder="例：example@email.com">
+        </div>
+
+        <div class="form-group">
+          <label>電話番号</label>
+          <input type="tel" name="tel" placeholder="例：090-1234-5678">
+        </div>
+
+        <div class="form-group">
+          <label>ご希望の作業項目（複数選択可）</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item">
+              <input type="checkbox" name="service" value="定期点検"> 定期点検・状態確認
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="service" value="水抜き水出し"> 水抜き・水出し対応
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="service" value="清掃手配"> 清掃業者の手配
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="service" value="簡単なリフォーム見積り"> 簡単なリフォーム見積り
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="service" value="庭の草刈り剪定"> 庭の草刈り・剪定
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="service" value="放置別荘確認"> 放置別荘の確認
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="service" value="定期管理"> 定期管理
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="service" value="その他"> その他・相談したい
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>物件の所在地（わかる範囲で）</label>
+          <input type="text" name="location" placeholder="例：軽井沢町 / 御代田町 ○○">
+        </div>
+
+        <div class="form-group">
+          <label>ご相談内容・ご要望</label>
+          <textarea name="message" placeholder="ご質問やご要望をご記入ください"></textarea>
+        </div>
+
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <button type="submit" class="btn">送信する</button>
+        </div>
+
+        <p class="form-note">
+          ※このフォームはサンプルです。実際にメールを送信するには、サーバー側の設定（FormspreeやGoogleフォームなど）が必要です。
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Villa Check 軽井沢・御代田｜軽井沢・御代田エリアの別荘点検サービス</p>
+  </footer>
+
+</body>
+</html>
